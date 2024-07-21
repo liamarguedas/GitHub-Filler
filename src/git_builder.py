@@ -26,6 +26,7 @@ from .comment_builder import CommentBuilder
 from .file_builder import FileBuilder
 
 BLANK = ""
+CONFIG = "config.json"
 
 
 class GitBuilder:
@@ -46,8 +47,8 @@ class GitBuilder:
         return random.randint(1, n)
 
     def read_configs(self):
-        """todo""" 
-        with open(self.filepath / "cfg" / "config.json", "r", encoding="utf-8") as file:
+        """todo"""
+        with open(self.filepath / "cfg" / CONFIG, "r", encoding="utf-8") as file:
             return json.load(file)
 
     def get_commits_number(self):
@@ -61,23 +62,25 @@ class GitBuilder:
                 print("ERROR: Could not read number of commits, using random commits")
 
         return self.random_commits()
-    
+
     def init_repository(self):
         """todo"""
-        command = f'git init'
+        command = "git init"
         os.system(command)
-        
+
     def set_remote_repository(self, repo):
         """todo"""
-        command = f'git remote add origin {repo}'
+        command = f"git remote add origin {repo}"
 
         os.system(command)
 
     def add(self):
+        """todo"""
         command = "git add ."
         os.system(command)
 
     def commit(self, message: str):
+        """todo"""
         command = f'git commit -m "{message}"'
         os.system(command)
 

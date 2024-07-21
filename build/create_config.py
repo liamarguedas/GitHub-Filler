@@ -1,4 +1,3 @@
-
 """
 GitHub Filler - Fake Commit Generator for GitHub
 
@@ -24,6 +23,7 @@ import json
 
 
 BLANK = ""
+CONFIG = "config.json"
 
 
 class GithubFillerConfig:
@@ -86,5 +86,5 @@ class GithubFillerConfig:
 
     def save_configs(self, cfgs):
         """todo"""
-        with open(self.cfg_dir / "config.json", "w", encoding="utf-8") as file:
+        with open(self.cfg_dir / CONFIG, "w", encoding="utf-8") as file:
             json.dump(cfgs, file)

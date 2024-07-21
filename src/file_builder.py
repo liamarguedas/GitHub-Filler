@@ -23,14 +23,17 @@ import random
 import os
 import json
 
+WORDS = "random_words.txt"
+FILE_TXT = "file_txt.txt"
+CONFIG = "config.json"
 
 class FileBuilder:
 
     def __init__(self):
         self.filepath = Path(__file__).parents[0]
         self.txt_path = self.filepath / "txt"
-        self.words_file = self.txt_path / "random_words.txt"
-        self.file_txt = self.txt_path / "file_txt.txt"
+        self.words_file = self.txt_path / WORDS 
+        self.file_txt = self.txt_path / FILE_TXT 
         self.words = self.read_text(self.words_file)
         self.file_text = self.read_text(self.file_txt)
         self.filename = None
@@ -60,7 +63,7 @@ class FileBuilder:
 
     def read_filetype(self):
         """todo"""
-        with open(self.filepath / "cfg" / "config.json", "r", encoding="utf-8") as file:
+        with open(self.filepath / "cfg" / CONFIG, "r", encoding="utf-8") as file:
 
             file_type = json.load(file)["file"]
             return file_type
