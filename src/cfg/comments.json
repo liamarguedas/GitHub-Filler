@@ -1,0 +1,9 @@
+{
+  "comments": [
+    "Add( Arg prefix to error message )",
+    "Add( Necessary requirements to use coverage )",
+    "Add( Initial working version )",
+    "Remove( Old build files )",
+    "Update( README.md )"
+  ]
+}
