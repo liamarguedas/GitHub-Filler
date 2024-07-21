@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License along with
 GitHub Filler. If not, see <https://www.gnu.org/licenses/>.
 """
 
-
 from pathlib import Path
 import time
 import statistics
