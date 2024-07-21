@@ -1,3 +1,24 @@
+"""
+GitHub Filler - Fake Commit Generator for GitHub
+
+Copyright (C) 2024-2024 Liam Arguedas
+
+This file is part of GitHub Filler, a free CLI tool based on the original Commitify 
+designed to generate fake commits for GitHub repositories.
+
+GitHub Filler is distributed under the terms of the GNU General Public License (GPL),
+either version 3 of the License, or any later version.
+
+GitHub Filler is provided "as is", without warranty of any kind, express or implied,
+including but not limited to the warranties of merchantability, fitness for a
+particular purpose, and noninfringement. See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+GitHub Filler. If not, see <https://www.gnu.org/licenses/>.
+"""
+
+
 from pathlib import Path
 import time
 import statistics
@@ -29,7 +50,7 @@ def main():
     day_counter = 0
 
     while system.current_iteration_day != system.ending_date:
-            
+
         starting_time = time.time()
 
         system.change_date()
@@ -47,17 +68,19 @@ def main():
         time_records.append(time.time() - starting_time)
 
         for _ in range(10):
-            time = round(int(statistics.mean(time_records) * (system.days - day_counter)) / 60, 2)
-            print(f"Aprox. estimated time to finish: {time}")
+            approx_time = round(
+                int(statistics.mean(time_records) * (system.days - day_counter)) / 60, 2
+            )
+            print(f"Aprox. estimated time to finish: {approx_time} minutes")
 
         day_counter += 1
 
+
 def read_date(date: str):
     """todo"""
-    temp = date[1:-1].split(",")
+    temp = date.split(",")
     return (int(temp[0]), int(temp[1]), int(temp[2]))
 
 
 if __name__ == "__main__":
     main()
-    # print(read_date("(2024, 3, 2)"))
