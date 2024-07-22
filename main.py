@@ -84,8 +84,14 @@ def read_date(date: str):
 
 def delete_cloned_cfs():
     """todo"""
-    if os.path.exists(".git"):
-        shutil.rmtree(".git")
+    folder_path = os.getcwd()  # Get the current working directory
+    git_folder_path = os.path.join(folder_path, ".git")
+
+    if os.path.isdir(git_folder_path):
+        shutil.rmtree(git_folder_path)
+        print(f".git folder deleted successfully from {folder_path}")
+    else:
+        print(f"No .git folder found in {folder_path}")
 
 
 if __name__ == "__main__":
