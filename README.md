@@ -25,31 +25,20 @@ Before you begin, you'll need to install the prerequisites:
 - [Python 3.x](https://www.python.org/downloads/)
 - Git installed and connected to your GitHub account.
 - Create a new repository on GitHub. You can name it as you wish, but ensure it remains empty. Do not add any files, including `LICENSE` or `README.md`. Optional: Set it to private.
-
-Python requirements:
-- You will only need the `pywin32` module, you can install it from the `requirements/requirements.txt` or manually by opening your terminal and typing `pip install pywin32`
-
 ### 2. Clone GitHub-Filler:
-- (IMPORTANT) Open your terminal with administrative privileges
-  
-  ![Admin privileges](https://raw.githubusercontent.com/liamarguedas/GitHub-Filler/master/img/terminal.png)
+
 - Clone the repository with the following commands:
      ```bash
      git clone https://github.com/liamarguedas/GitHub-Filler.git
      cd GitHub-Filler
      ```
-     
-**Why do I need administrative privileges?**
-
-Since the tool is designed to backfill from a starting date (X) to an ending date (Y), it will need to access your computer's calendar and adjust the date to the required year/month/day. This can only be done in a terminal with administrative privileges.
-
 ### 3. Execute the tool
 - Run the following command:
   ```bash
   python main.py
   ```
   
-4. **Configuration**:
+### 4. **Configuration**:
    - Upon running `main.py`, the CLI will prompt you for repository information and GitHub-Filler configuration.
    - You can set your own configuration or leave it blank to use the default settings.
      - **Repository URL**: Provide the URL of the GitHub repository you created earlier.
@@ -73,7 +62,7 @@ With these steps completed, GitHub-Filler is set up and ready to demonstrate con
 ## Platform Compatibility
 
 - **Windows**: Fully supported and ready to use.
-- **Linux / macOS**: Currently at around 90% completion.
+- **Linux / macOS**: Fully supported and ready to use.
 
 ## Donations
 
