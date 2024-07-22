@@ -20,6 +20,7 @@ GitHub Filler. If not, see <https://www.gnu.org/licenses/>.
 
 from pathlib import Path
 import time
+import os, shutil
 import statistics
 from build import GithubFillerConfig
 from src import GitBuilder
@@ -31,6 +32,8 @@ FILES_DIR = ROOT_PATH / "files"
 
 def main():
     """todo"""
+
+    delete_cloned_cfs()
 
     params = GithubFillerConfig().ask_configs(return_configs=True)
 
@@ -77,6 +80,12 @@ def read_date(date: str):
     """todo"""
     temp = date.split(",")
     return (int(temp[0]), int(temp[1]), int(temp[2]))
+
+
+def delete_cloned_cfs():
+    """todo"""
+    if os.path.exists(".git"):
+        shutil.rmtree(".git")
 
 
 if __name__ == "__main__":
