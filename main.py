@@ -33,8 +33,6 @@ FILES_DIR = ROOT_PATH / "files"
 def main():
     """todo"""
 
-    delete_cloned_cfs()
-
     params = GithubFillerConfig().ask_configs(return_configs=True)
 
     start_date = read_date(params["starting_date"])
@@ -80,19 +78,6 @@ def read_date(date: str):
     """todo"""
     temp = date.split(",")
     return (int(temp[0]), int(temp[1]), int(temp[2]))
-
-
-def delete_cloned_cfs():
-    """todo"""
-    folder_path = os.getcwd()  # Get the current working directory
-    git_folder_path = os.path.join(folder_path, ".git")
-
-    if os.path.isdir(git_folder_path):
-        shutil.rmtree(git_folder_path)
-        print(f".git folder deleted successfully from {folder_path}")
-    else:
-        print(f"No .git folder found in {folder_path}")
-
 
 if __name__ == "__main__":
     main()
