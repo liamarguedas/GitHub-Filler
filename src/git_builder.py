@@ -70,7 +70,7 @@ class GitBuilder:
 
     def set_remote_repository(self, repo):
         """todo"""
-        command = f"git remote add origin {repo}"
+        command = f"git remote set-url origin {repo}"
 
         os.system(command)
 
@@ -89,7 +89,7 @@ class GitBuilder:
         command = f"git push origin {self.branch}"
         os.system(command)
 
-    def execute(self, date:str, push=True):
+    def execute(self, date: str, push=True):
         """todo"""
         self.file_generator.create_file(self.directory)
         self.add()
