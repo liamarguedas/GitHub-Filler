@@ -20,7 +20,6 @@ GitHub Filler. If not, see <https://www.gnu.org/licenses/>.
 
 
 from datetime import datetime, timedelta
-from win32api import GetSystemTime, SetSystemTime
 
 
 class DateChanger:
@@ -41,26 +40,24 @@ class DateChanger:
     def create_systemtime_object(timeobject):
         """todo"""
 
-        os_date = GetSystemTime()
-        return (
+        os_date = datetime.now()
+
+        return datetime(
             timeobject.year,  # Year
             timeobject.month,  # Month
-            os_date[2],  # Day of the week (not used for setting the date)
             timeobject.day,  # Day
-            os_date[4],  # Hour
-            os_date[5],  # Minute
-            os_date[6],  # Second
-            os_date[7],  # Milliseconds
+            os_date.hour,  # Hour
+            os_date.minute,  # Minute
+            os_date.second,  # Second
         )
 
     def change_date(self, to_future=False):
         """
         Can only be done using admin cmd
         """
-        new_date = self.create_systemtime_object(
-            self.current_system_date if to_future else self.current_iteration_day
-        )
-        SetSystemTime(*new_date)
+        new_date = self.create_systemtime_object(self.current_iteration_day)
+
+        return new_date.strftime("%Y-%m-%d %H:%M:%S")
 
     def next_day(self, days=1):
         """todo"""

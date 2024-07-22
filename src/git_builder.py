@@ -79,9 +79,9 @@ class GitBuilder:
         command = "git add ."
         os.system(command)
 
-    def commit(self, message: str):
+    def commit(self, message: str, date: str):
         """todo"""
-        command = f'git commit -m "{message}"'
+        command = f'git commit --date="{date}" -m "{message}"'
         os.system(command)
 
     def push(self):
@@ -89,11 +89,11 @@ class GitBuilder:
         command = f"git push origin {self.branch}"
         os.system(command)
 
-    def execute(self, push=True):
+    def execute(self, date:str, push=True):
         """todo"""
         self.file_generator.create_file(self.directory)
         self.add()
         comment = self.comment_generator.comment()
-        self.commit(message=comment)
+        self.commit(message=comment, date=date)
         if push:
             self.push()

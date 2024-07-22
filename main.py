@@ -52,13 +52,11 @@ def main():
 
         starting_time = time.time()
 
-        system.change_date()
+        date = system.change_date()
 
         for _ in range(git.get_commits_number()):
 
-            git.execute(push=False)
-
-        system.change_date(to_future=True)
+            git.execute(push=False, date=date)
 
         git.push()
 
